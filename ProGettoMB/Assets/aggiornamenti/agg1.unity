@@ -168,11 +168,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26d070fb58c82c141b3cd4b262828721, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gravity: -100
+  gravity: -300
   velocity: {x: 0, y: 0}
-  jumpVelocity: 30
+  jumpVelocity: 40
   grounHeight: -2
   isGrounded: 1
+  isHoldingJump: 0
+  maxHoldJumpTime: 0.4
+  holdJumpTimer: 0
+  jumpGroundThreshold: 3
 --- !u!212 &1120603394
 SpriteRenderer:
   m_ObjectHideFlags: 0
