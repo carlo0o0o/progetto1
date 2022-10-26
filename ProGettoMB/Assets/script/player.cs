@@ -2,19 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class player : MonoBehaviour
-{
 
+
+public class Player : MonoBehaviour
+{
     public float gravity;
     public Vector2 velocity;
     public float jumpVelocity = 20;
-    public float groundHeight = 10;
+    public float grounHeight = 10;
     public bool isGrounded = false;
 
-    // Start is called before the first frame update
+
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -30,23 +31,23 @@ public class player : MonoBehaviour
         }
     }
 
-    private void FixedUpate()
+    private void FixedUpdate()
     {
         Vector2 pos = transform.position;
+
         if (!isGrounded)
         {
             pos.y += velocity.y * Time.fixedDeltaTime;
             velocity.y += gravity * Time.fixedDeltaTime;
 
-            if(pos.y <= groundHeight)
+            if (pos.y <= grounHeight)
             {
-                pos.y = groundHeight;
+                pos.y = grounHeight;
                 isGrounded = true;
             }
         }
-        
 
-
-            transform.position = pos;
+        transform.position = pos;
     }
+
 }
