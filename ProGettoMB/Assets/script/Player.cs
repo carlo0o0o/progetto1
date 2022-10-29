@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 
 public class Player : MonoBehaviour
@@ -12,7 +13,7 @@ public class Player : MonoBehaviour
     public float distance = 0;
     public float jumpVelocity = 20;
     public float maxXVelocity = 100;
-    public float grounHeight = 10;
+    public float grounHeight = -5;
     public bool isGrounded = false;
 
     public bool isHoldingJump = false;
@@ -71,11 +72,20 @@ public class Player : MonoBehaviour
                 velocity.y += gravity * Time.fixedDeltaTime;
             }
 
-            if (pos.y <= grounHeight)
+            Vector2 rayOrigin = new Vector2(pos.x + 0.7f, pos.y);
+            Vector2 rayDirection = Vector2.up;
+            float rayDistance = velocity.y * Time.fixedDeltaTime;
+            RaycastHit2D hit2D = Physics2D.Raycast(rayOrigin, rayDirection, rayDistance);
+            if(hit2D.collider != null)
             {
-                pos.y = grounHeight;
-                isGrounded = true;
+                Ground ground = hit2D.collider.GetComponent<Ground>();
+                if(ground != null)
+                {
+                    pos.y = grounHeight;
+                    isGrounded = true;
+                }
             }
+            Debug.DrawRay(rayOrigin, rayDirection * rayDistance, Color.red);
         }
 
         distance += velocity.x * Time.fixedDeltaTime;
