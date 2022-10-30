@@ -13,7 +13,7 @@ public class Player : MonoBehaviour
     public float distance = 0;
     public float jumpVelocity = 20;
     public float maxXVelocity = 100;
-    public float grounHeight = -5;
+    public float groundHeight = -5;
     public bool isGrounded = false;
 
     public bool isHoldingJump = false;
@@ -32,7 +32,7 @@ public class Player : MonoBehaviour
     void Update()
     {
         Vector2 pos = transform.position;
-        float groundDistance = Mathf.Abs(pos.y - grounHeight);
+        float groundDistance = Mathf.Abs(pos.y - groundHeight);
 
         if (isGrounded || groundDistance <= jumpGroundThreshold)
         {
@@ -81,7 +81,8 @@ public class Player : MonoBehaviour
                 Ground ground = hit2D.collider.GetComponent<Ground>();
                 if(ground != null)
                 {
-                    pos.y = grounHeight;
+                    groundHeight = ground.groundHeight;
+                    pos.y = groundHeight;
                     isGrounded = true;
                 }
             }
@@ -102,6 +103,18 @@ public class Player : MonoBehaviour
             {
                 velocity.x = maxXVelocity;
             }
+
+
+            Vector2 rayOrigin = new Vector2(pos.x - 0.7f, pos.y);
+            Vector2 rayDirection = Vector2.up;
+            float rayDistance = velocity.y * Time.fixedDeltaTime;
+            RaycastHit2D hit2D = Physics2D.Raycast(rayOrigin, rayDirection, rayDistance);
+            if (hit2D.collider == null)
+            {
+                isGrounded = false;
+            }
+            Debug.DrawRay(rayOrigin, rayDirection * rayDistance, Color.yellow);
+
         }
 
 

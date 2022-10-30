@@ -158,7 +158,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 364, y: 243}
+  m_AnchoredPosition: {x: 345, y: 148}
   m_SizeDelta: {x: 160, y: 49.57}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &14500461
@@ -365,7 +365,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1120603391}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 23.233, y: -2.096, z: 0}
+  m_LocalPosition: {x: 23.5, y: -1.9, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -391,7 +391,7 @@ MonoBehaviour:
   distance: 0
   jumpVelocity: 15
   maxXVelocity: 100
-  grounHeight: -2
+  groundHeight: -5
   isGrounded: 1
   isHoldingJump: 0
   maxHoldJumpTime: 0.4
@@ -794,7 +794,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1635310568}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.24, y: -0.5, z: 0}
   m_LocalScale: {x: 13, y: 5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -993,6 +993,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f11f9e7158ebf149992daa7fd67e196, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  groundHeight: 0
 --- !u!4 &1805479951
 Transform:
   m_ObjectHideFlags: 0
@@ -1001,7 +1002,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1805479948}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 25.01, y: -5.1, z: 0}
+  m_LocalPosition: {x: 24.88, y: -5.43, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
