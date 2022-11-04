@@ -7,7 +7,7 @@ public class Parallax3 : MonoBehaviour
 {
     //13
 
-    float depth = 10;
+    float depth = 3;
 
     Player player;
 
@@ -28,8 +28,8 @@ public class Parallax3 : MonoBehaviour
 
         pos.x -= realVelocity * Time.fixedDeltaTime;
 
-        if (pos.x <= -25)
-            pos.x = 80;
+        if (pos.x <= 4)
+            pos.x = 35;
 
         transform.position = pos;
     }
