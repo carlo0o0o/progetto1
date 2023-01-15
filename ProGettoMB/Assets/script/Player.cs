@@ -8,11 +8,11 @@ public class Player : MonoBehaviour
 {
     public float gravity;
     public Vector2 velocity;
-    public float maxAcceleration = 5;
-    public float acceleration = 2;
+    public float maxAcceleration = 10;
+    public float acceleration = 10;
     public float distance = 0;
     public float jumpVelocity = 20;
-    public float maxXVelocity = 5;
+    public float maxXVelocity = 100;
     public float groundHeight = -5;
     public bool isGrounded = false;
 

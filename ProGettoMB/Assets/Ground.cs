@@ -20,6 +20,7 @@ public class Ground : MonoBehaviour
         collider = GetComponent<BoxCollider2D>();
         groundHeight = transform.position.y + (collider.size.y / 2);
         screenRight = Camera.main.transform.position.x * 2;
+        
     }
 
     void Start()
@@ -36,7 +37,7 @@ public class Ground : MonoBehaviour
     private void FixedUpdate()
     {
         Vector2 pos = transform.position;
-        pos.x = player.velocity.x * Time.fixedDeltaTime;
+        pos.x -= player.velocity.x * Time.fixedDeltaTime;  //ho modificato "=" in "-="
 
         groundRight = transform.position.x + (collider.size.x / 2);
 
@@ -48,7 +49,7 @@ public class Ground : MonoBehaviour
 
         if (!didGenerateGround)
         {
-            if (groundRight > screenRight)
+            if (groundRight < screenRight)   //ho modificato il > con il <
             {
                 didGenerateGround = true;
                 generateGround();
@@ -63,7 +64,7 @@ public class Ground : MonoBehaviour
         GameObject go = Instantiate(gameObject);
         BoxCollider2D goCollider = go.GetComponent<BoxCollider2D>();
         Vector2 pos;
-        pos.x = screenRight + 30;
+        pos.x = screenRight + 15;   //ho modificato il "30" con "15"
         pos.y = transform.position.y;
         go.transform.position = pos;
     }
